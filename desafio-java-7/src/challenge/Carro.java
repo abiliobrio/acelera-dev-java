@@ -1,4 +1,4 @@
-package challange;
+package challenge;
 
 import java.util.Objects;
 
@@ -88,7 +88,27 @@ public class Carro {
         }
 
         public Carro build() {
+            validarCarro();
             return new Carro(motorista, placa, cor);
         }
+
+        private void validarCarro() {
+            validarPlaca();
+            validarCor();
+        }
+        
+        private void validarPlaca() {
+            if (this.placa == null) {
+                throw new NullPointerException("Preencha com uma placa válida");
+            }            
+        }
+        
+        private void validarCor() {
+            if (this.cor == null) {
+                throw new NullPointerException("Preencha com uma cor válida");
+            }            
+        }
+
     }
+
 }

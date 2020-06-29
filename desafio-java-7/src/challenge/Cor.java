@@ -1,4 +1,4 @@
-package challange;
+package challenge;
 
 public enum Cor {
     PRETO,BRANCO,COLORIDO

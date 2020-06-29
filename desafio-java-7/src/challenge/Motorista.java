@@ -1,4 +1,4 @@
-package challange;
+package challenge;
 
 import java.util.Objects;
 
@@ -83,27 +83,63 @@ public class Motorista {
 
         public MotoristaBuilder withNome(String nome) {
             this.nome = nome;
+            validarNome();
             return this;
         }
 
         public MotoristaBuilder withIdade(int idade) {
             this.idade = idade;
+            validarIdade();
             return this;
         }
 
         public MotoristaBuilder withPontos(int pontos) {
             this.pontos = pontos;
+            validarPontos();
             return this;
         }
 
         public MotoristaBuilder withHabilitacao(String habilitacao) {
             this.habilitacao = habilitacao;
+            validarHabilitacao();
             return this;
         }
 
 
         public Motorista build() {
+            validarMotorista();
             return new Motorista(nome, idade, pontos, habilitacao);
+        }
+        
+        private void validarMotorista() {
+            validarHabilitacao();
+            validarNome();
+            validarIdade();
+            validarPontos();
+        }
+        
+        private void validarHabilitacao() {
+            if (habilitacao == null || habilitacao.equals("")) {
+                throw new NullPointerException("Informe o campo habilitação");
+            }            
+        }
+        
+        private void validarNome() {
+            if (this.nome == null || nome.equals("")) {
+                throw new NullPointerException("Informe o campo nome");
+            }            
+        }
+        
+        private void validarIdade() {
+            if (this.idade < 0) {
+                throw new IllegalArgumentException("Informe uma idade valida");
+            }
+        }
+        
+        private void validarPontos() {
+            if (this.pontos < 0) {
+                throw new IllegalArgumentException("Informe uma pontuação válida");
+            }            
         }
     }
 }
