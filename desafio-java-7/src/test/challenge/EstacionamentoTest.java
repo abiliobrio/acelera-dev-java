@@ -1,4 +1,4 @@
-package test.challange;
+package test.challenge;
 
 
 import static java.util.concurrent.ThreadLocalRandom.current;
@@ -9,11 +9,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import challange.Carro;
-import challange.Cor;
-import challange.Estacionamento;
-import challange.EstacionamentoException;
-import challange.Motorista;
+import challenge.Carro;
+import challenge.Cor;
+import challenge.Estacionamento;
+import challenge.EstacionamentoException;
+import challenge.Motorista;
 
 public class EstacionamentoTest {
 

@@ -1,0 +1,35 @@
+@startuml
+interface Criptografia [[java:challange.Criptografia]] {
+	String criptografar(String texto)
+	String descriptografar(String texto)
+}
+class CriptografiaCesariana [[java:challange.CriptografiaCesariana]] {
+	+String criptografar(String texto)
+	+String descriptografar(String texto)
+	+{static}String inverte(String txtOriginal, int key)
+}
+interface Criptografia [[java:challange.Criptografia]] {
+}
+Criptografia <|.. CriptografiaCesariana
+class CriptografiaCesarianaTest [[java:challange.CriptografiaCesarianaTest]] {
+	-{static}String TEXTO_CRIPTOGRAFADO
+	-{static}String TEXTO_DESCRIPTOGRAFADO
+	+void before()
+	+void deveRetornarErroQuandoOCriptografaTextoEhVazio()
+	+void deveRetornarErroQuandoCriptografaTextoEhNulo()
+	+void deveRetornarErroQuandoODesCriptografaTextoEhVazio()
+	+void deveRetornarErroQuandoDesCriptografaTextoEhNulo()
+	+void deveCriptografarTexto()
+	+void deveDescriptografarTexto()
+	+void deveManterOsNumerosNaCriptografia()
+	+void deveManterOsNumerosNaDescriptografia()
+	+void deveConverterCaracteresParaMinusculoNaCriptografia()
+	+void deveConverterCaracteresParaMinusculoNaDescriptografia()
+}
+class Criptografia [[java:challange.Criptografia]] {
+}
+CriptografiaCesarianaTest --> "1" Criptografia : criptografia
+class DesafioApplication [[java:challange.DesafioApplication]] {
+	+{static}void main(String[] args)
+}
+@enduml

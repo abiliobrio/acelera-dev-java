@@ -1,0 +1,51 @@
+@startuml
+class Carro [[java:challange.Carro]] {
+	-String placa
+	-Carro(Motorista motorista, String placa, Cor cor)
+	+Motorista getMotorista()
+	+String getPlaca()
+	+Cor getCor()
+	+boolean equals(Object o)
+	+int hashCode()
+	+String toString()
+	+{static}CarroBuilder builder()
+}
+class Motorista [[java:challange.Motorista]] {
+}
+Carro --> "1" Motorista : motorista
+class Cor [[java:challange.Cor]] {
+}
+Carro --> "1" Cor : cor
+enum Cor [[java:challange.Cor]] {
+	PRETO
+	BRANCO
+	COLORIDO
+}
+class Estacionamento [[java:challange.Estacionamento]] {
+	~int TOTALVAGAS
+	+void estacionar(Carro carro)
+	+int carrosEstacionados()
+	+boolean carroEstacionado(Carro carro)
+}
+class EstacionamentoException [[java:challange.EstacionamentoException]] {
+	+EstacionamentoException(String message)
+}
+class RuntimeException [[java:java.lang.RuntimeException]] {
+}
+RuntimeException <|-- EstacionamentoException
+class Motorista [[java:challange.Motorista]] {
+	-String nome
+	-int idade
+	-int pontos
+	-String habilitacao
+	-Motorista(String nome, int idade, int pontos, String habilitacao)
+	+String getNome()
+	+int getIdade()
+	+int getPontos()
+	+String getHabilitacao()
+	+boolean equals(Object o)
+	+int hashCode()
+	+String toString()
+	+{static}MotoristaBuilder builder()
+}
+@enduml
