@@ -9,6 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Challenge {
+public class Acceleration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -36,8 +37,8 @@ public class Challenge {
     private LocalDateTime createdAt;
 
     @OneToMany
-    private Set<Acceleration> accelerations;
+    private Set<Candidate> candidates;
 
-    @OneToMany
-    private Set<Submission> submissions;
+    @ManyToOne
+    private Challenge challenge_id;
 }
