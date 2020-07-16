@@ -37,4 +37,6 @@ public class Company {
 
     @OneToMany
     private List<Candidate> candidates;
+
+	
 }

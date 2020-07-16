@@ -40,4 +40,5 @@ public class Challenge {
 
     @OneToMany
     private Set<Submission> submissions;
+	
 }
