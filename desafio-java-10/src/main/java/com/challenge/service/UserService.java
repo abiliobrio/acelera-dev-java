@@ -15,7 +15,7 @@ public class UserService implements UserServiceInterface {
 	
 	@Autowired
 	private UserRepository userRepository;
-
+	
 	@Override
 	public User save(User object) {
 		return this.userRepository.save(object);
@@ -28,13 +28,12 @@ public class UserService implements UserServiceInterface {
 
 	@Override
 	public List<User> findByAccelerationName(String name) {
-		return this.userRepository.findByAccelerationName(name);
+		return this.userRepository.findByCandidatesIdAccelerationName(name);
 	}
 
 	@Override
 	public List<User> findByCompanyId(Long companyId) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.findByCompanyId(companyId);
 	}
 
 }
