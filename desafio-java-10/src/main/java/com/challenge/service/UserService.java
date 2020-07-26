@@ -1,5 +1,6 @@
 package com.challenge.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,9 @@ public class UserService implements UserServiceInterface {
 	private UserRepository userRepository;
 	
 	@Override
-	public User save(User object) {
-		return this.userRepository.save(object);
+	public User save(User user) {
+		user.setCreatedAt(LocalDateTime.now());
+		return this.userRepository.save(user);
 	}
 
 	@Override
@@ -33,7 +35,7 @@ public class UserService implements UserServiceInterface {
 
 	@Override
 	public List<User> findByCompanyId(Long companyId) {
-		return this.findByCompanyId(companyId);
+		return this.userRepository.findByCandidatesIdCompanyId(companyId);
 	}
 
 }
