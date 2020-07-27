@@ -3,20 +3,21 @@ package br.com.codenation.livro.repository;
 
 import br.com.codenation.categoria.model.Categoria;
 import br.com.codenation.livro.model.Livro;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-
 import java.util.List;
 
 
 public interface LivroRepository extends CrudRepository<Livro, Long> {
 
-    List<Livro> findAll();
+    Page<Livro> findAll(Pageable pageable);
 
     List<Livro> findByTitulo(String titulo);
 
-    List<Livro> findByTituloContaining(String titulo);
+    Page<Livro> findByTituloContaining(String titulo, Pageable pageable);
 
     List<Livro> findByCategorias(Categoria categoria);
 

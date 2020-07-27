@@ -4,6 +4,7 @@ import br.com.codenation.livro.model.Livro;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Categoria {
     private Long id;
 
     @NotNull
+    @NotBlank
     private String nome;
 
     @ManyToMany
